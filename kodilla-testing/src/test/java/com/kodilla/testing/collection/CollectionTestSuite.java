@@ -5,13 +5,14 @@ import org.junit.jupiter.api.*;
 import java.util.*;
 
 public class CollectionTestSuite {
-    @BeforeAll
-    static void beforeAll() {
 
-    }
+    private static int testCounter = 0;
 
     @BeforeEach
+
     public void before() {
+        testCounter++;
+        System.out.println("Preparing to execute test #" + testCounter);
         System.out.println("Test Suite: START");
     }
 
