@@ -24,42 +24,42 @@ public class ShapeCollectorTestSuite {
     }
 
     @Nested
-    @DisplayName("Checking method addShape")
+    @DisplayName("Checking method addFigure")
     class TestAdd {
         @Test
-        void testAddShape() {
+        void addFigure() {
             //Given
             ShapeCollector collector = new ShapeCollector();
-            Shape circle = new Circle("C1", 7);
-            Shape square = new Square("S1", 6);
-            Shape triangle = new Triangle("T1", 4, 8);
+            Shape circle = new Circle(7.0);
+            Shape square = new Square(6.0);
+            Shape triangle = new Triangle(4.0, 8.0);
             //When
-            collector.addShape(circle);
-            collector.addShape(square);
-            collector.addShape(triangle);
+            collector.addFigure(circle);
+            collector.addFigure(square);
+            collector.addFigure(triangle);
             //Then
-            assertEquals(circle, collector.getFigures(0));
-            assertEquals(square, collector.getFigures(1));
-            assertEquals(triangle, collector.getFigures(2));
+            assertEquals(circle, collector.getFigure(0));
+            assertEquals(square, collector.getFigure(1));
+            assertEquals(triangle, collector.getFigure(2));
         }
     }
 
     @Nested
-    @DisplayName("Checking method removeShape")
+    @DisplayName("Checking method removeFigure")
     class TestRemove {
         @Test
-        void removeShape() {
+        void removeFigure() {
 
             //Given
             ShapeCollector collector = new ShapeCollector();
-            Shape circle = new Circle("C1", 7);
-            Shape square = new Square("S1", 6);
-            Shape triangle = new Triangle("T1", 4, 8);
-            collector.addShape(circle);
-            collector.addShape(square);
-            collector.addShape(triangle);
+            Shape circle = new Circle(7.0);
+            Shape square = new Square(6.0);
+            Shape triangle = new Triangle(4.0, 8.0);
+            collector.addFigure(circle);
+            collector.addFigure(square);
+            collector.addFigure(triangle);
             //When
-            collector.removeShape(circle);
+            collector.removeFigure(circle);
             //Then
 
             assertEquals(square, collector.getFigure(0));
@@ -70,21 +70,21 @@ public class ShapeCollectorTestSuite {
     }
 
     @Nested
-    @DisplayName("Checking method getShape")
+    @DisplayName("Checking method getFigure")
     class TestGet {
         @Test
-        public void getShape() {
+        public void getFigure() {
 
             //Given
             ShapeCollector collector = new ShapeCollector();
-            Shape circle = new Circle("C1", 7);
-            Shape square = new Square("S1", 6);
-            Shape triangle = new Triangle("T1", 4, 8);
-            collector.addShape(circle);
-            collector.addShape(square);
-            collector.addShape(triangle);
+            Shape circle = new Circle(7.0);
+            Shape square = new Square(6.0);
+            Shape triangle = new Triangle(4.0, 8.0);
+            collector.addFigure(circle);
+            collector.addFigure(square);
+            collector.addFigure(triangle);
             //When
-            int shape = collector.getFigure(0);
+            Shape shape = collector.getFigure(0);
             //Then
             assertEquals(circle, shape);
             System.out.println(collector);
@@ -92,19 +92,19 @@ public class ShapeCollectorTestSuite {
     }
 
     @Nested
-    @DisplayName("Checking method showShape")
+    @DisplayName("Checking method showFigure")
     class TestShow {
         @Test
-        public void showShape() {
+        public void showFigures() {
 
             //Given
             ShapeCollector collector = new ShapeCollector();
-            Shape circle = new Circle("C1", 7);
-            Shape square = new Square("S1", 6);
-            Shape triangle = new Triangle("T1", 4, 8);
-            collector.addShape(circle);
-            collector.addShape(square);
-            collector.addShape(triangle);
+            Shape circle = new Circle(7.0);
+            Shape square = new Square(6.0);
+            Shape triangle = new Triangle(4.0, 8.0);
+            collector.addFigure(circle);
+            collector.addFigure(square);
+            collector.addFigure(triangle);
             //When
             collector.showFigures();
             System.out.println(collector);
