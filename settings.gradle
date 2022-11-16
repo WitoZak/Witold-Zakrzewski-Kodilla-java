@@ -3,4 +3,5 @@ include 'kodilla-testing:kodilla-testing'
 findProject(':kodilla-testing:kodilla-testing')?.name = 'kodilla-testing'
 include 'kodilla-testing:user'
 findProject(':kodilla-testing:user')?.name = 'user'
+include 'kodilla-stream'
 
