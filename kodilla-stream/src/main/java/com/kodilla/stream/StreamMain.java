@@ -13,7 +13,7 @@ public class StreamMain {
         Forum theForum = new Forum();
         theForum.getUserList().stream()
                 .filter(n -> n.getSex()=='M')
-                .filter(n -> Period.between(n.getDateOfBirth(), LocalDate.now()).getYears()>20)
+                .filter(n -> Period.between(n.getDateOfBirth(), LocalDate.now()).getYears()>=20)
                 .filter(n->n.getPostCount()>=1)
                 .collect(Collectors.toMap(forumUsers::getId, n->n)).entrySet()
                 .stream()
