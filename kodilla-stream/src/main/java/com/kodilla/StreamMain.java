@@ -1,4 +1,4 @@
-package com.kodilla.stream;
+package com.kodilla;
 
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
@@ -22,5 +22,3 @@ public class StreamMain {
 
     }
 }
-
-
