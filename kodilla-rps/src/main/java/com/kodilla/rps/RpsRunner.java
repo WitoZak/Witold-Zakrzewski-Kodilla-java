@@ -12,16 +12,16 @@ public class RpsRunner {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int AiResult = 0;
-        int UserResult = 0;
+        int aiResult = 0;
+        int userResult = 0;
         int roundsCount = 0;
 
         boolean end = false;
 
         // Wczytaj name
         System.out.println("Podaj imię: ");
-        String name = scanner.nextLine();
-        System.out.println("ZACZYNAMY!! "+ name);
+        String user = scanner.nextLine();
+        System.out.println("ZACZYNAMY!! " + user);
 
         // Sout zasady
         System.out.println("Kamień -> '1'");
@@ -36,6 +36,18 @@ public class RpsRunner {
 
         //Tu wchodzi While czyli się komplikuje:)
         while (!end) {
+            System.out.println("Wykonaj swój ruch");
+
+            if (user.equalsIgnoreCase("X")) {
+                System.out.println("Czy na pewno zakończyć grę?");
+                break;
+            } else if (user.equalsIgnoreCase("N")) {
+                System.out.println("Czy na pewno zakończyć aktualną grę i zacząć od nowa?");
+                
+                    //Jak albo czym wymusić zaczęcie od nowa??
+            } else if (aiMove(user)) {
+                int ai = random.nextInt(2) + 1;
+            }
 
 
             //Na pewno za każdą pętlą musi zczytać koniec gry(X) i nowa gra(N)
@@ -46,4 +58,25 @@ public class RpsRunner {
             //Na końcu metoda kończąca gre i wyświetlająca wynik
         }
     }
+
+    static boolean pointForUser(String user, int ai) {
+        return (user.equals("1") && ai == 3) || (user.equals("2") && ai == 1) || (user.equals("3") && ai == 2);
+    }
+
+    static boolean pointForAi(String user, int ai) {
+        return (user.equals("1") && ai == 2) || (user.equals("2") && ai == 3) || (user.equals("3") && ai == 1);
+    }
+
+    static boolean tie(String user, int ai) {
+        return (user.equals("1") && ai == 1) || (user.equals("2") && ai == 2) || (user.equals("3") && ai == 3);
+    }
+
+    static boolean aiMove(String user) {
+        return user.equals("1") || user.equals("2") || user.equals("3");
+    }
+
+    static boolean checkingIfEnd(int aiResult, int userResult, int roundsCount) {
+        return roundsCount == aiResult + userResult;
+    }
 }
+
