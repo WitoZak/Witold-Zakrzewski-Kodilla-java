@@ -6,11 +6,7 @@ import java.util.Scanner;
 public class RpsRunner {
     public static void main(String[] args) {
 
-        //Użyję klasy Scanner i Random
-        //Zmienne wynik gracza, komputera oraz ilość rund
-        //Boolean false czy gra działa
-
-        Scanner scanner = new Scanner(System.in);
+               Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         int aiResult = 0;
         int userResult = 0;
@@ -18,12 +14,10 @@ public class RpsRunner {
 
         boolean end = false;
 
-        // Wczytaj name
         System.out.println("Podaj imię: ");
-        String user = scanner.nextLine();
-        System.out.println("ZACZYNAMY!! " + user);
+        String name = scanner.nextLine();
+        System.out.println("ZACZYNAMY!! " + name);
 
-        // Sout zasady
         System.out.println("Kamień -> '1'");
         System.out.println("Papier -> '2'");
         System.out.println("Nożyce -> '3'");
@@ -34,37 +28,47 @@ public class RpsRunner {
         System.out.println("Ile rund zagramy? ");
         roundsCount = Integer.parseInt(scanner.nextLine());
 
-        //Tu wchodzi While czyli się komplikuje:)
         while (!end) {
             System.out.println("Wykonaj swój ruch");
+            String user = scanner.nextLine();
 
             if (user.equalsIgnoreCase("X")) {
                 System.out.println("Czy na pewno zakończyć grę?");
                 break;
             } else if (user.equalsIgnoreCase("N")) {
                 System.out.println("Czy na pewno zakończyć aktualną grę i zacząć od nowa?");
-                
-                    //Jak albo czym wymusić zaczęcie od nowa??
+                aiResult = 0;
+                userResult = 0;
+
             } else if (aiMove(user)) {
-                int ai = random.nextInt(2) + 1;
+                int ai = random.nextInt(3) + 1;
+                System.out.println("Mój ruch to " + ai);
+                if (tie(user, ai)) {
+                    System.out.println("To samo, gramy dalej");
+                } else if (pointForUser(user, ai)) {
+                    System.out.println("Bravo, punkt dla Ciebie");
+                    userResult++;
+                } else {
+                    System.out.println("Punkt dla mnie");
+                    aiResult++;
+                }
+                System.out.println("Wynik: " + name + " --> " + userResult + " Ai --> " + aiResult);
             }
 
+            if (checkingIfEnd(aiResult, userResult, roundsCount)) {
+                if (userResult > aiResult) {
+                    System.out.println("Wygrałeś, bravo TY");
+                } else {
+                    System.out.println("Tym razem AI jest górą");
+                }
+                break;
 
-            //Na pewno za każdą pętlą musi zczytać koniec gry(X) i nowa gra(N)
-            //User wybiera kształt
-            //Jeśli gra jest kontynuowana to Ai wywołuje klasę Random
-            //I tu nie wiem jak porównać wyniki?? Jakieś gotowe metody boolean ??
-            // Wygrana AI, wygrana Usera, remis ?!
-            //Na końcu metoda kończąca gre i wyświetlająca wynik
+            }
         }
     }
 
     static boolean pointForUser(String user, int ai) {
         return (user.equals("1") && ai == 3) || (user.equals("2") && ai == 1) || (user.equals("3") && ai == 2);
-    }
-
-    static boolean pointForAi(String user, int ai) {
-        return (user.equals("1") && ai == 2) || (user.equals("2") && ai == 3) || (user.equals("3") && ai == 1);
     }
 
     static boolean tie(String user, int ai) {
