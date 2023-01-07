@@ -27,7 +27,7 @@ public class FlightRadar {
     }
 
     public List<Flights> getFlightsTo(String to) {
-        return line.stream().filter(n -> n.getDeparture().equals(to)).collect(Collectors.toList());
+        return line.stream().filter(n -> n.getArrival().equals(to)).collect(Collectors.toList());
     }
 
     public List<Flights> getFlightsThrough(String from, String to) {

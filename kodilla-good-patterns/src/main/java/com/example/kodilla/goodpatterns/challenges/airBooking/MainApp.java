@@ -10,7 +10,7 @@ public class MainApp {
         showFlights(from, "From");
         List<Flights> to = flightRadar.getFlightsTo("Gdańsk");
         showFlights(to, "To");
-        List<Flights> through = flightRadar.getFlightsThrough("Kraków", "Gdańsk");
+        List<Flights> through = flightRadar.getFlightsThrough("Poznań", "Gdańsk");
         showFlights(through, "Through");
 
     }
