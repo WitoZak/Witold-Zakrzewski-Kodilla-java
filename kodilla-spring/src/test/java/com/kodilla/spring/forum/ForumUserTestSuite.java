@@ -1,7 +1,6 @@
-package com.kodilla.spring;
+package com.kodilla.spring.forum;
 
 
-import com.kodilla.spring.forum.ForumUser;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
