@@ -12,17 +12,16 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {BoardConfig.class})
 public class BoardTestSuite {
-
     @Test
-    public void testTaskAdd() {
-        //Given
+    public void testTaskAdd(){
+        //Give
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
 
         //When
-        board.getToDoList().addTask("Task1");
-        board.getInProgressList().addTask("Task2");
-        board.getDoneList().addTask("Task3");
+        board.toDoList.addTask("Task1");
+        board.inProgressList.addTask("Task2");
+        board.doneList.addTask("Task3");
 
         //Then
         assertEquals(1, board.getToDoList().getTasks().size());

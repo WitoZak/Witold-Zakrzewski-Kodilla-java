@@ -10,11 +10,11 @@ class TaskList {
         tasks = new ArrayList<>();
     }
 
-    public List<String> getTasks() {
-        return tasks;
-    }
-
     public void addTask(String task) {
         tasks.add(task);
+    }
+
+    public List<String> getTasks() {
+        return tasks;
     }
 }
