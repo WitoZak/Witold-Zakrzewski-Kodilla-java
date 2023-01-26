@@ -1,17 +1,15 @@
 package com.kodilla.spring.library;
 
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = LibraryDbController.class)
+
+@SpringBootTest(classes = Library.class)
 class LibraryTestSuite {
 
     @Test
