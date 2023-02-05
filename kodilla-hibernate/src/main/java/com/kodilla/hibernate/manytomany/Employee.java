@@ -6,6 +6,12 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.findByLastName",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        )
+})
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
@@ -13,21 +19,6 @@ public class Employee {
     private int id;
     private String firstname;
     private String lastname;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "JOIN_COMPANY_EMPLOYEE",
-            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
-    )
-    public List<Company> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
-    }
-
     private List<Company> companies = new ArrayList<>();
 
     public Employee() {
@@ -58,6 +49,16 @@ public class Employee {
         return lastname;
     }
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "JOIN_COMPANY_EMPLOYEE",
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+    )
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
     private void setId(int id) {
         this.id = id;
     }
@@ -68,5 +69,9 @@ public class Employee {
 
     private void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
 }
