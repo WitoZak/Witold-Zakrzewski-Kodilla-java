@@ -110,7 +110,7 @@ class CompanyDaoTestSuite {
         int company3Id = nokia.getId();
 
         //When
-        List<Company> resultCompanyList = companyDao.findACompanyByParameters("sam");
+        List<Company> resultCompanyList = companyDao.contains("sam");
 
         //Then
         try {

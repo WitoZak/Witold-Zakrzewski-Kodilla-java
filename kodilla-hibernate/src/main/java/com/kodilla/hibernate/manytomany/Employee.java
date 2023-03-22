@@ -10,6 +10,10 @@ import java.util.List;
         @NamedQuery(
                 name = "Employee.findByLastName",
                 query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.lastNameContains",
+                query = "From Employee WHERE lastname LIKE :FRAGMENT"
         )
 })
 @Entity
@@ -59,6 +63,10 @@ public class Employee {
         return companies;
     }
 
+    private void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
     private void setId(int id) {
         this.id = id;
     }
@@ -69,9 +77,5 @@ public class Employee {
 
     private void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
     }
 }

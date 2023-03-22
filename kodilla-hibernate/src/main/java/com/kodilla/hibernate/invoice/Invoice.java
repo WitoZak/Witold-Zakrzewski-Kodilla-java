@@ -7,24 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name="INVOICES")
 public class Invoice {
-
     private int id;
     private String number;
-    List<Item> items = new ArrayList<>();
-
-    public Invoice() {
-    }
+    private List<Item> items = new ArrayList<>();
 
     public Invoice(String number) {
         this.number = number;
     }
 
+    public Invoice() {}
+
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name="ID", unique = true)
     public int getId() {
         return id;
     }
@@ -34,7 +32,7 @@ public class Invoice {
     }
 
     @NotNull
-    @Column(name = "NUMBER")
+    @Column(name="NUMBER")
     public String getNumber() {
         return number;
     }

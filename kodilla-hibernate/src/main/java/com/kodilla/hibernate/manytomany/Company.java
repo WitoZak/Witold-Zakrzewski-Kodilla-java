@@ -6,16 +6,15 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQueries({
-        @NamedNativeQuery(
-                name = "Company.findACompanyByParameters",
-                query = """
-                        SELECT * FROM COMPANIES
-                        WHERE SUBSTRING(Company_name, 1, 3) = :NAME
-                        """,
-                resultClass = Company.class
-        )
-})
+@NamedNativeQuery(
+        name = "Company.startsWith",
+        query = "SELECT * FROM companies WHERE SUBSTRING(company_name, 1, 3) = :FRAGMENT",
+        resultClass = Company.class
+)
+@NamedQuery(
+        name = "Company.contains",
+        query = "FROM Company WHERE name LIKE :FRAGMENT"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -50,15 +49,15 @@ public class Company {
         return employees;
     }
 
+    private void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
     private void setId(int id) {
         this.id = id;
     }
 
     private void setName(String name) {
         this.name = name;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
     }
 }
