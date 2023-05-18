@@ -1,40 +1,40 @@
-# Gra "Kamień-Papier-Nożyce"
+# Rock-Paper-Scissors Game
 
-To jest prosta konsolowa implementacja klasycznej gry "Kamień-Papier-Nożyce" napisana w języku Java.
+This is a simple console-based implementation of the classic game "Rock-Paper-Scissors" written in Java.
 
-## Jak grać
-1. Uruchom program.
-2. Podaj swoje imię po wyświetleniu odpowiedniego komunikatu.
-3. Gra wyświetli następujące opcje:
-   - Kamień -> '1'
-   - Papier -> '2'
-   - Nożyce -> '3'
-   - Nowa gra -> 'N'
-   - Zakończ grę -> 'X'
-4. Wybierz liczbę odpowiadającą Twojemu ruchowi.
-5. Komputer losowo wybierze swój ruch.
-6. Wynik zostanie wyświetlony, pokazując kto wygrał rundę.
-7. Punkty zostaną zaktualizowane odpowiednio.
-8. Kontynuuj grę aż do osiągnięcia określonej liczby rund lub do momentu zakończenia gry.
+## How to Play
+1. Run the program.
+2. Enter your name when prompted.
+3. The game will display the following options:
+   - Rock -> '1'
+   - Paper -> '2'
+   - Scissors -> '3'
+   - New Game -> 'N'
+   - End Game -> 'X'
+4. Enter the number corresponding to your move.
+5. The computer will randomly select its move.
+6. The results will be displayed, showing who won the round.
+7. The score will be updated accordingly.
+8. Continue playing until the specified number of rounds is reached or until you choose to end the game.
 
-## Zasady
-- Kamień pokonuje Nożyce
-- Papier pokonuje Kamień
-- Nożyce pokonują Papier
+## Rules
+- Rock beats Scissors
+- Paper beats Rock
+- Scissors beats Paper
 
-## Dodatkowe opcje
-- Wybór 'N' zakończy bieżącą grę i rozpocznie nową.
-- Wybór 'X' wymaga potwierdzenia, aby zakończyć grę.
+## Additional Options
+- Choosing 'N' will end the current game and start a new one.
+- Choosing 'X' will prompt for confirmation to end the game.
 
-## Wymagania
-- Java 11 lub nowsza
+## Dependencies
+- Java 11 or higher
 
-## Uruchamianie
-1. Skompiluj plik Java:
+## How to Run
+1. Compile the Java file:
    ```
    javac RpsRunner.java
    ```
-2. Uruchom skompilowaną klasę:
+2. Run the compiled class:
    ```
    java RpsRunner
    ```
