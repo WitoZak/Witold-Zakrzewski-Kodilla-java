@@ -86,12 +86,10 @@ class CrudAppTestSuite {
         driverTrello.findElement(By.id("password")).sendKeys("45rQ:^ti;M3jRDc");
         driverTrello.findElement(By.id("login-submit")).submit();
 
-        Thread.sleep(4000);
+        Thread.sleep(8000);
 
-        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
-                .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)  // [10]
-                .forEach(WebElement::click);
-
+        WebElement searchElement = driverTrello.findElement(By.xpath(".//div[@title=\"Kodilla Application\"]"));
+        searchElement.click();
         Thread.sleep(4000);
 
         result = driverTrello.findElements(By.xpath("//span")).stream()
